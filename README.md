@@ -1,5 +1,9 @@
 # 📝 Sistema de Tarefas 1.0
 
+##Projeto Funcionando:
+https://sistema-de-tarefas-mini-jj95.vercel.app/
+
+
 Aplicação desenvolvida em React para gerenciamento de tarefas com persistência local.
 
 ## 🚀 Funcionalidades
