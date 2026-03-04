@@ -1,16 +1,39 @@
-# React + Vite
+# 📝 Sistema de Tarefas 2.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação desenvolvida em React para gerenciamento de tarefas com persistência local.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Adicionar tarefas
+- ✔️ Marcar como concluída
+- 🗑️ Excluir tarefa individual
+- 🧹 Limpar todas as tarefas
+- 📊 Contador de tarefas (total, concluídas e pendentes)
+- 💾 Persistência com LocalStorage
+- ⌨️ Suporte à tecla Enter
 
-## React Compiler
+## 🛠️ Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- CSS3
+- LocalStorage
 
-## Expanding the ESLint configuration
+## 🧠 Conceitos Aplicados
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- useState
+- useEffect
+- Manipulação imutável de estado
+- Renderização condicional
+- Props
+- Componentização
+- Estado derivado
+- Classes dinâmicas
+
+## 💡 Objetivo
+
+Projeto desenvolvido para consolidar conhecimentos fundamentais em React, aplicando gerenciamento de estado, persistência de dados e boas práticas de organização de código.
+
+---
+
+Desenvolvido por Suellen Oliveira 💜

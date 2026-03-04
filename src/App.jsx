@@ -1,35 +1,76 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import AddTask from './components/AddTask';
+import TaskList from './components/TaskList';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const addTask = (text) => {
+    const newTask = {
+      id: Date.now(),
+      text,
+      completed: false
+    };
+
+    setTasks(prevTasks => [...prevTasks, newTask]);
+  };
+
+  const toggleTask = (id) => {
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === id
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    );
+  };
+
+  const deleteTask = (id) => {
+    setTasks(prevTasks =>
+      prevTasks.filter(task => task.id !== id)
+    );
+  };
+
+  const clearTasks = () => {
+    setTasks([]);
+  };
+    const totalTasks = tasks.length;
+const completedTasks = tasks.filter(task => task.completed).length;
+const pendingTasks = totalTasks - completedTasks;
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="App">
+      <h1>Sistema de Tarefas</h1>
+      
+
+      <AddTask addTask={addTask} />
+
+      <TaskList
+        tasks={tasks}
+        toggleTask={toggleTask}
+        deleteTask={deleteTask}
+      />
+
+      <div className="task-stats">
+  <span>Total: {totalTasks}</span>
+  <span>Concluídas: {completedTasks}</span>
+  <span>Pendentes: {pendingTasks}</span>
+</div>
+
+      {tasks.length > 0 && (
+        <button className="clear-btn" onClick={clearTasks}>
+          Limpar Tarefas
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
