@@ -1,4 +1,4 @@
-# 📝 Sistema de Tarefas 2.0
+# 📝 Sistema de Tarefas 1.0
 
 Aplicação desenvolvida em React para gerenciamento de tarefas com persistência local.
 
